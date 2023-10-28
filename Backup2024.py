@@ -1,15 +1,23 @@
 import shutil
 import os
-import datetime
+from datetime import datetime, timedelta
 
-todays_date = datetime.datetime.today().strftime('%m-%d-%Y')
+todays_date = datetime.today().strftime('%m-%d-%Y')
 
 current_dir = os.getcwd()
-print(current_dir)
-source = 'C:/Users/FSAE/OneDrive - Mississippi State University/Documents - MSSTATE Formula SAE (UserCreated)/Mississippi State FSAE/FSAE 2024'
-dst = os.path.join(current_dir, f'Bulldog Backup 2024 {todays_date}')
+source = rf"C:\Users\FSAE\OneDrive - Mississippi State University\Documents - MSSTATE Formula SAE (UserCreated)\Mississippi State FSAE\FSAE 2024"
+backupName = f'Bulldog Backup 2024 {todays_date}'
+file_to_zip = rf"D:\BulldogBackup\Bulldog Backup 2024 {todays_date}"
+dst = os.path.join(current_dir, backupName)
 shutil.copytree(source,dst)
-print("done")
+shutil.make_archive(backupName, 'zip', file_to_zip)
+shutil.rmtree(f'Bulldog Backup 2024 {todays_date}')
+for files in os.listdir():
+    if files.endswith(".zip"):
+        file_date = files[20:30]
+        file_date = datetime.strptime(file_date, '%m-%d-%Y')
+        if (file_date + timedelta(days=180) > todays_date):
+            os.remove(files)
 
 # Backup 2024 file
 
