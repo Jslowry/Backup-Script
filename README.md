@@ -1,6 +1,3 @@
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-
 To use this script:
 
 1. Place both files in the same directory you'd like backups to be placed in.
@@ -9,6 +6,4 @@ To use this script:
 
 3. Execute the .bat file
 
-
-+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
