@@ -7,8 +7,10 @@ for /f "tokens=2,3,4 delims=/ " %%a in ("%date%") do (
 
 REM Copies entire file tree including empty files and excludes mp4's. Log file is truncated every run.
 
-set "OneDrivePATH="
-set "destinationPATH=%cd%\Bulldog Backup %dateFormat%"
+REM set "BackupPATH=C:\Backup"
+set "BackupPATH="
+
+set "destinationPATH=%cd%\Backup %dateFormat%"
 set "logFilePATH=%cd%\LogFile"
 robocopy "%oneDrivePATH%" "%destinationPATH%" /E /xf *.mp4 /log:"%logFilePATH%"
 
