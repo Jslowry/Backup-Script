@@ -7,12 +7,12 @@ for /f "tokens=2,3,4 delims=/ " %%a in ("%date%") do (
 
 REM Copies entire file tree including empty files and excludes mp4's. Log file is truncated every run.
 
-REM set "BackupPATH=C:\Backup"
-set "BackupPATH="
+REM set "backupPATH=C:\Backup"
+set "backupPATH="
 
 set "destinationPATH=%cd%\Backup %dateFormat%"
 set "logFilePATH=%cd%\LogFile"
-robocopy "%oneDrivePATH%" "%destinationPATH%" /E /xf *.mp4 /log:"%logFilePATH%"
+robocopy "%backupPATH%" "%destinationPATH%" /E /xf *.mp4 /log:"%logFilePATH%"
 
 REM Runs python script that zips up the backup
 REM Python script must be in same directory
